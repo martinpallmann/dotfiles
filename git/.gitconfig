@@ -1,0 +1,12 @@
+[user]
+    name = Martin Pallmann
+[core]
+    excludesfile = /Users/mpallmann/.gitignore_global
+[commit]
+    gpgsign = false
+[includeIf "gitdir:~/Projects/"]
+    path = ~/Projects/.gitconfig
+[includeIf "gitdir:~/Z/"]
+    path = ~/Z/.gitconfig
+[hub]
+    host = github.bus.zalan.do
