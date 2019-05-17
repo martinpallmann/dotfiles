@@ -1,12 +1,13 @@
 [user]
-    name = Martin Pallmann
+	name = Martin Pallmann
+	signingkey = F39BA9524054E275
 [core]
-    excludesfile = /Users/mpallmann/.gitignore_global
+	excludesfile = /Users/mpallmann/.gitignore_global
 [commit]
-    gpgsign = false
+	gpgsign = true
 [includeIf "gitdir:~/Projects/"]
-    path = ~/Projects/.gitconfig
+	path = ~/Projects/.gitconfig
 [includeIf "gitdir:~/Z/"]
-    path = ~/Z/.gitconfig
+	path = ~/Z/.gitconfig
 [hub]
-    host = github.bus.zalan.do
+	host = github.bus.zalan.do
