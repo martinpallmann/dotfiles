@@ -1,6 +1,6 @@
 [user]
 	name = Martin Pallmann
-	signingkey = F39BA9524054E275
+  signingkey = B6F91DF970AC4F57
 [core]
 	excludesfile = /Users/mpallmann/.gitignore_global
 [diff]
@@ -13,5 +13,3 @@
 	path = ~/Projects/.gitconfig
 [includeIf "gitdir:~/Z/"]
 	path = ~/Z/.gitconfig
-[hub]
-	host = github.bus.zalan.do

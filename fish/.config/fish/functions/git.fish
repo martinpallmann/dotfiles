@@ -7,6 +7,7 @@ function git --wraps hub --description 'Alias for hub, which wraps git to provid
     set -x GITHUB_HOST github.com
   end
   hub $argv
+  set -e GITHUB_TOKEN
   set -e GITHUB_HOST
 end
 
