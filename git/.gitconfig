@@ -1,12 +1,8 @@
 [user]
 	name = Martin Pallmann
-  signingkey = B6F91DF970AC4F57
+  signingkey = F39BA9524054E275
 [core]
 	excludesfile = /Users/mpallmann/.gitignore_global
-[diff]
-	tool = intellij
-[difftool "intellij"]
-	cmd = /usr/local/bin/idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
 [commit]
 	gpgsign = true
 [includeIf "gitdir:~/Projects/"]
