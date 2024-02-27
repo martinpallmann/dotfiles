@@ -1,0 +1,7 @@
+#! /bin/sh
+
+DOTFILES_DIR=$HOME/.dotfiles
+
+git --git-dir=$DOTFILES_DIR --work-tree=$HOME $@
+
+
