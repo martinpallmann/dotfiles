@@ -1,0 +1,67 @@
+# --- Instant prompt (must stay first) ---
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Homebrew site-functions (guarded)
+if command -v brew >/dev/null 2>&1; then
+  fpath+=("$(brew --prefix)/share/zsh/site-functions")
+fi
+
+# Completions (cached in XDG, and -C to skip extra checks if cache is fresh)
+autoload -Uz compinit
+compinit -C -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump-${ZSH_VERSION}"
+
+# --- Znap bootstrap into XDG data ---
+ZNAP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/znap"
+if [[ ! -r "$ZNAP_DIR/znap.zsh" ]]; then
+  git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git "$ZNAP_DIR"
+fi
+source "$ZNAP_DIR/znap.zsh"
+
+# Plugins (pin with @<sha> if you want exact versions)
+znap source zsh-users/zsh-autosuggestions
+# keep highlighting LAST
+znap source zsh-users/zsh-syntax-highlighting
+
+# Theme
+znap source romkatv/powerlevel10k
+[[ -f "$ZDOTDIR/p10k.zsh" ]] && source "$ZDOTDIR/p10k.zsh"
+
+# Faster tool hooks via Znap caching
+command -v rbenv >/dev/null 2>&1  && znap eval rbenv  'rbenv init - zsh'
+command -v direnv >/dev/null 2>&1 && znap eval direnv 'direnv hook zsh'
+
+# Nix (guarded)
+[[ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]] && \
+  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+
+# RubyGems -> XDG, per Ruby ABI (works with rbenv)
+if command -v ruby >/dev/null 2>&1; then
+  api="$(ruby -e 'print RbConfig::CONFIG["ruby_version"]' 2>/dev/null || true)"
+  if [[ -n "$api" ]]; then
+    export GEM_HOME="${XDG_DATA_HOME}/gem/ruby/${api}"
+    export GEM_SPEC_CACHE="${XDG_CACHE_HOME}/gem"
+    export GEMRC="${XDG_CONFIG_HOME}/gem/gemrc"
+    path+=("$GEM_HOME/bin")
+  fi
+fi
+
+# Bundler to XDG (optional but nice)
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle/config"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+export BUNDLE_USER_HOME="$XDG_DATA_HOME/bundle"
+
+typeset -gxU path PATH fpath
+
+# Aliases
+alias ls='lsd --group-dirs=first --color=auto --icon=auto'
+alias ll='lsd -l --group-dirs=first --color=auto --icon=auto'
+alias la='lsd -la --group-dirs=first --color=auto --icon=auto'
+alias lt='lsd --tree --depth=2 --group-dirs=first --color=auto --icon=auto'
+alias meld='/Applications/Meld.app/Contents/MacOS/Meld'
+alias vim=nvim
+alias vi=nvim
+alias v=nvim
+
+
