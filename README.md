@@ -13,13 +13,13 @@ Personal dotfiles managed with **GNU Stow** and a **Justfile** for ergonomic tas
 - macOS (Homebrew):
   ```bash
   brew install stow just
-````
+```
 
 * Debian/Ubuntu:
 
   ```bash
   sudo apt install stow just
-  ```
+```
 
 ### 2) Clone and enter
 
