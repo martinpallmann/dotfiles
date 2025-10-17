@@ -1,0 +1,46 @@
+[user]
+    name = Martin Pallmann
+    email = 132760+martinpallmann@users.noreply.github.com
+	signingkey = /Users/martin/.ssh/id_ed25519.pub
+
+[color]
+    ui = auto
+
+[core]
+    editor = nvim
+    autocrlf = input
+    excludesfile = ~/.config/git/ignore
+
+[init]
+    defaultBranch = main
+
+[diff]
+    tool = meld
+
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+    prompt = false
+
+[merge]
+    tool = meld
+    conflictstyle = diff3
+
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    trustExitCode = true
+    prompt = false
+
+[pull]
+    rebase = false
+
+[push]
+    default = current
+
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[gpg "ssh"]
+	allowedSignersFile = /Users/martin/.config/git/allowed_signers

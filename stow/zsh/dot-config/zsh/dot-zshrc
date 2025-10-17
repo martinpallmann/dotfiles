@@ -54,6 +54,24 @@ export BUNDLE_USER_HOME="$XDG_DATA_HOME/bundle"
 
 typeset -gxU path PATH fpath
 
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(atuin init zsh)"
+
+export VISUAL=nvim
+export EDITOR=nvim
+
+# Key bindings
+bindkey -v 
+export KEYTIMEOUT=1
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M viins 'jk' vi-cmd-mode
+
+# Make Home/End/Ctrl-A/Ctrl-E behave nicely
+bindkey -M viins '^A'  beginning-of-line
+bindkey -M viins '^E'  end-of-line
+bindkey -M vicmd '^A'  beginning-of-line
+bindkey -M vicmd '^E'  end-of-line
+
 # Aliases
 alias ls='lsd --group-dirs=first --color=auto --icon=auto'
 alias ll='lsd -l --group-dirs=first --color=auto --icon=auto'
@@ -62,6 +80,4 @@ alias lt='lsd --tree --depth=2 --group-dirs=first --color=auto --icon=auto'
 alias meld='/Applications/Meld.app/Contents/MacOS/Meld'
 alias vim=nvim
 alias vi=nvim
-alias v=nvim
-
 

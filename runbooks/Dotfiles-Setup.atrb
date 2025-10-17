@@ -1,0 +1,219 @@
+id: 0199ee36-6a7d-7441-a6a6-3808eb7c50a6
+name: Dotfiles-Setup
+version: 1
+content:
+- id: 30bd3f34-0288-43fe-9045-c58b71305e9d
+  type: heading
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+    level: 1
+    isToggleable: false
+  content:
+  - type: text
+    text: Dotfiles-Setup
+    styles: {}
+  children: []
+- id: b8768a0d-4ebb-448f-8f45-111f4b820c56
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content: []
+  children: []
+- id: fe9997af-b2f7-4b9c-afae-827ab02a6647
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content:
+  - type: text
+    text: 'Personal dotfiles managed with '
+    styles: {}
+  - type: text
+    text: GNU Stow
+    styles:
+      bold: true
+  - type: text
+    text: ' and a '
+    styles: {}
+  - type: text
+    text: Justfile
+    styles:
+      bold: true
+  - type: text
+    text: ' for ergonomic tasks. '
+    styles: {}
+  children: []
+- id: bd56743b-053f-42eb-a058-ca64aab4ac07
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content: []
+  children: []
+- id: 4cb2acdd-cd63-4018-b28f-9dbfd03a552e
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content:
+  - type: text
+    text: 'Choose your dotfiles repo:'
+    styles:
+      italic: true
+  children: []
+- id: 73492965-9e1e-46de-a7b5-2d2abcfba0ae
+  type: local-directory
+  props: {}
+  children: []
+- id: 28c23953-1303-4d22-a759-36871bbcc58d
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content: []
+  children: []
+- id: 5455bd67-32f2-44bb-beab-1997cee30cca
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content:
+  - type: text
+    text: 'Have a look at the Justfile and the Brewfile:'
+    styles:
+      italic: true
+  children: []
+- id: 35515651-51af-4229-a945-18adfead2d7e
+  type: run
+  props:
+    type: bash
+    name: Justfile
+    code: bat --style=plain --paging=never Justfile
+    pty: ''
+    global: false
+    outputVisible: true
+    dependency: '{}'
+  children: []
+- id: c58dea4a-edb8-477a-9e9f-c10f35e39418
+  type: run
+  props:
+    type: bash
+    name: Brewfile
+    code: bat --style=plain --paging=never Brewfile
+    pty: ''
+    global: false
+    outputVisible: true
+    dependency: '{}'
+  children: []
+- id: 32c99e9a-d2d3-4ae4-96b2-50a4840c700b
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content: []
+  children: []
+- id: 2350b7f3-9bdd-4913-8c1a-89ce6f32ecfc
+  type: heading
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+    level: 2
+    isToggleable: false
+  content:
+  - type: text
+    text: Maintenance
+    styles: {}
+  children: []
+- id: e7daa067-e241-441b-88b1-e346a993d26e
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content: []
+  children: []
+- id: 4ba6cbe7-de20-4b23-8e58-df6c0897e77e
+  type: run
+  props:
+    type: bash
+    name: Install/Update Homebrew
+    code: |-
+      if ! command -v brew >/dev/null 2>&1; then
+        echo "Installing Homebrew"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      else
+        brew update
+        brew bundle --file ./Brewfile
+      fi
+    pty: ''
+    global: false
+    outputVisible: true
+    dependency: '{}'
+  children: []
+- id: edb590a3-895f-4ad7-82e2-e5a8535657cd
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content: []
+  children: []
+- id: fd7f824f-692e-40af-84e0-7a843c6d76fe
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content: []
+  children: []
+- id: 6662f4fa-e019-49bf-a95c-232b924cd4cd
+  type: run
+  props:
+    type: bash
+    name: Link dotfiles
+    code: 'just link  '
+    pty: ''
+    global: false
+    outputVisible: true
+    dependency: '{}'
+  children: []
+- id: 41db092c-5731-4b9d-9add-f54fda637ba1
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content: []
+  children: []
+- id: 1edb471f-a7d3-409b-9a04-64116df7b924
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content:
+  - type: text
+    text: |2+
+
+
+    styles: {}
+  children: []
+- id: a61bd07e-5c98-4426-be96-2deadcd34834
+  type: paragraph
+  props:
+    textColor: default
+    backgroundColor: default
+    textAlignment: left
+  content: []
+  children: []

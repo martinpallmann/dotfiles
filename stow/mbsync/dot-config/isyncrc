@@ -1,0 +1,23 @@
+IMAPAccount icloud
+Host imap.mail.me.com
+User hello@pallmann.berlin
+PassCmd "security find-generic-password -s mbsync-icloud-mail -w"
+TLSType IMAPS
+AuthMechs LOGIN
+
+IMAPStore icloud-remote
+Account icloud
+
+MaildirStore icloud-local
+Path ~/.local/share/mail/icloud/
+Inbox ~/.local/share/mail/icloud/Inbox
+SubFolders Verbatim
+
+Channel icloud
+Far :icloud-remote:
+Near :icloud-local:
+Patterns "INBOX" "Sent" "Archive"
+Create Both
+Expunge Both
+SyncState ~/.local/state/mbsync/icloud
+
