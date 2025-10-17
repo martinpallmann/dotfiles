@@ -148,14 +148,7 @@ content:
   props:
     type: bash
     name: Install/Update Homebrew
-    code: |-
-      if ! command -v brew >/dev/null 2>&1; then
-        echo "Installing Homebrew"
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      else
-        brew update
-        brew bundle --file ./Brewfile
-      fi
+    code: just brew
     pty: ''
     global: false
     outputVisible: true

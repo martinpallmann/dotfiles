@@ -1,4 +1,6 @@
 brew "git"
+brew "git-lfs"
+brew "gh"
 brew "stow"
 brew "isync"
 brew "notmuch"
